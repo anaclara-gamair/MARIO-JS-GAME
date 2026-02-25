@@ -1,0 +1,69 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+
+.game_board {
+    width: 80%;
+    height: 500px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /*TUDO O QUE ESTIVER ALEM DA BORDA É ESCONDIDO*/
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe_animation 1.5s infinite linear;
+
+}
+
+/*GIF DO MARIO CORRENDO NA TELA*/
+.mario {
+    width: 120px;
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+/*ANIMAÇAÕDO TUBO*/
+@keyframes pipe_animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+/*ANIMAÇAO DE PULO DO MARIO*/
+@keyframes jump {
+    0% {
+        bottom: 0;
+        }
+    
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100%{
+        bottom: 0;
+    }
+
+}

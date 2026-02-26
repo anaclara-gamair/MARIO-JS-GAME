@@ -3,6 +3,10 @@ const mario = document.querySelector('.mario');
 //pegando a propiedade do tubo (pipe)
 const pipe = document.querySelector('.pipe');
 
+//pegando a classe clouds no css
+const clouds = documents.querySelector('.clouds')
+
+
 const jump = () => {
     mario.classList.add('jump');
 

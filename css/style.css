@@ -31,6 +31,11 @@
     
 }
 
+.clouds {
+    width: 420px;
+    position: absolute;
+    animation: clouds_animations 15s infinite linear;
+}
 
 .jump {
     animation: jump 500ms ease-out;
@@ -68,4 +73,14 @@
         bottom: 0;
     }
 
+}
+
+@keyframes clouds_animations {
+    from {
+        right: -420px;
+    }
+
+    to {
+        right: 100%;
+    }
 }

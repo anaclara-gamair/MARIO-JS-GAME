@@ -4,8 +4,11 @@ const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 
 //pegando a classe clouds no css
-const clouds = documents.querySelector('.clouds')
+const clouds = document.querySelector('.clouds')
 
+//pegando elementos da imagem de ame over e botao de restart
+const gameOverImg = document.querySelector('.game-over');
+const restartBtn = document.querySelector('.restart');
 
 const jump = () => {
     mario.classList.add('jump');
@@ -20,6 +23,8 @@ const loop = setInterval(() => {
     
     const pipePosition = pipe.offsetLeft; //verifiando o log da posição que se encontra o pipe
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+    const cloudsPosition = window.getComputedStyle(clouds).right;
+
     
     // SE O PIPE ESTIVER NA POSIÇAO X a animaçao dele vai parar na mesma posiçao
     if (pipePosition <= 120 && pipePosition> 0 && marioPosition < 80) {
@@ -36,9 +41,19 @@ const loop = setInterval(() => {
         mario.style.width = '75px'
         mario.style.marginLeft = '50px'
 
-        clearInterval(loop);
+        // parando a animação das nuvens 
+        clouds.style.animation = 'none';
+        clouds.style.right = cloudsPosition;
+
+            // IMAGEM GAME OVER BOTTOM RESTART
+        gameOverImg.style.display = 'block';
+        restartBtn.style.display = 'block';
+
     }
 }, 10)
 
 
 document.addEventListener('keydown', jump);
+restartBtn.addEventListener('click', () => {
+    location.reload();
+});
